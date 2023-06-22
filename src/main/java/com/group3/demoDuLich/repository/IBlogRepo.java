@@ -16,4 +16,9 @@ public interface IBlogRepo extends PagingAndSortingRepository<Blog, Integer> {
             "group by blog.id \n" +
             "order by sl desc limit :index , :count")
     List<Blog> findTopByComment(@Param("idC") int idC, @Param("index") int index, @Param("count") int count);
+ @Query(nativeQuery = true, value = "SELECT * FROM blogDuLich.blog where title like concat('%',:title,'%')")
+    List<Blog> search(@Param("title") String title);
+
+ @Query(nativeQuery = true, value = "SELECT avg(count) FROM blogDuLich.comment join blog_comments on blog_comments.comments_id= comment.id where blog_id=:blog_id ")
+ Integer rating(@Param("blog_id") int blog_id);
 }

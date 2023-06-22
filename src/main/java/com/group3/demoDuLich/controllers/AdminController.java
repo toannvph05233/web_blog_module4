@@ -70,6 +70,12 @@ public class AdminController {
         return "/admin/editBlog";
     }
 
+    @GetMapping("/blog/delete/{id}")
+    public String delete(@PathVariable int id) {
+        iBlogRepo.deleteById(id);
+        return "redirect:/admin";
+    }
+
     @GetMapping("/blog")
     public String showCreateBlog(Model model) {
         model.addAttribute("blog", new Blog());
@@ -77,7 +83,7 @@ public class AdminController {
     }
 
     @PostMapping("/blog")
-    public String createBlog(@ModelAttribute Blog blog, @RequestParam String img) {
+    public String createBlog(@ModelAttribute Blog blog, @RequestParam(defaultValue = "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/10_2020/dia-diem-chup-anh-dep-o-phu-quoc-ba.jpg") String img) {
         Image image = new Image();
         image.setUrl(img);
         image = iImageRepo.save(image);

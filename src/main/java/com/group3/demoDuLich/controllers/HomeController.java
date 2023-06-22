@@ -75,6 +75,13 @@ public class HomeController {
         return "blogs";
     }
 
+    @GetMapping("search")
+    public String search(@RequestParam(defaultValue = "") String title, Model model) {
+        List<Blog> blogs = iBlogRepo.search(title);
+        model.addAttribute("blogs", blogs);
+        return "blogs";
+    }
+
 
     @GetMapping("vechungtoi")
     public String showVeChungToi() {

@@ -58,7 +58,6 @@
         .rating > label {
             position: relative;
             width: 19px;
-            font-size: 25px;
             color: #ff0000;
             cursor: pointer;
 
@@ -114,7 +113,6 @@
         <div class="hero__text">
             <h1>WEB RVIEW</h1>
             <p> Chuyên review địa điểm du lịch và thức ăn</p>
-            <a href="/" class="btn__dark margin__top">Tham gia</a>
         </div>
     </div>
 </header>
@@ -172,12 +170,135 @@
         <div class="col-10">
             <div class="comment-box ml-2">
                 <h4 th:text="${comment.user.username}"></h4>
-                <div class="rating">
-                    <input type="radio" name="rating" value="5"><label for="5">☆</label>
-                    <input type="radio" name="rating" value="4"><label for="4">☆</label>
-                    <input type="radio" name="rating" value="3"><label for="3">☆</label>
-                    <input type="radio" name="rating" value="2"><label for="2">☆</label>
-                    <input type="radio" name="rating" value="1"><label for="1">☆</label>
+                <div class="rating" th:if="${comment.count == 5}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rating" th:if="${comment.count == 4}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rating" th:if="${comment.count == 3}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rating" th:if="${comment.count == 2}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rating" th:if="${comment.count == 1}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rating" th:if="${comment.count == 0}">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 70 70">
+                            <polygon points="35 2 43 25 67 25 47 40 53 63 35 50 17 63 23 40 3 25 27 25" fill="white" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
                 </div>
                 <br>
                 <br>
@@ -195,7 +316,7 @@
 <hr>
 <br>
 <form th:action="@{/comment/{id} (id=${blog.id})}" method="post">
-<div class="row container">
+    <div class="row container">
 
         <div class="col-2">
             <img style="margin-left: 50%" src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2">
@@ -228,7 +349,7 @@
 
         </div>
 
-</div>
+    </div>
 </form>
 <!-- -----------Footer------------ -->
 <footer class="footer">

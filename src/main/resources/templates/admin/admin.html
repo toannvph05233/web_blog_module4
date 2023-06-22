@@ -57,7 +57,7 @@
                         <th>gender</th>
                         <th>role</th>
                         <th>Edit</th>
-                        <th>Delete</th>
+<!--                        <th>Delete</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -72,9 +72,9 @@
                         <td>
                             <a th:href="@{/admin/user/{id} (id= ${user.id})}" type="button" class="btn btn-warning">Edit</a>
                         </td>
-                        <td>
-                            <a type="button" class="btn btn-danger">Delete</a>
-                        </td>
+<!--                        <td>-->
+<!--                            <a type="button" class="btn btn-danger">Delete</a>-->
+<!--                        </td>-->
                     </tr>
                     </tbody>
                 </table>
@@ -151,7 +151,7 @@
                             <a th:href="@{/admin/blog/{id} (id= ${blog.id})}" type="button" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            <a type="button" class="btn btn-danger">Delete</a>
+                            <a onclick="return confirm('Bạn có chắc chắn muốn xóa blog không?')"  th:href="@{/admin/blog/delete/{id} (id= ${blog.id})}" type="button" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     </tbody>
@@ -163,3 +163,4 @@
 </div>
 </body>
 </html>
+

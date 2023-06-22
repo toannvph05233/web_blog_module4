@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,9 +7,17 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./font/fontawesome-free-6.4.0/css/all.min.css">
-    <title>Document</title>
+    <title>Home</title>
+    <style>
+        .form-input, .form button {
+
+            height: 35px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
+
 <header>
     <div class="header-top">
         <i class="fa-solid fa-bars"></i>
@@ -24,19 +31,38 @@
     <div class="video-container" style="height: 70vh">
         <video src="Video/Videonen .mp4" autoplay muted loop></video>
     </div>
-    <div class="header-content" style="font-size: 25px;width: 760px; left: 27%; top: 30%">
+    <div class="header-content" style="font-size: 25px;width: 760px; left: 27%; top: 30%; color: lightgreen">
         <h1>Chào Mừng Bạn Đã Đến Với Trang Web Review Du Lịch</h1>
         <p>Xách ba lô lên và đi nào </p>
         <br>
         <div th:if="${!authentication.getPrincipal().toString().equals('anonymousUser')}">
-            <h1 style="color: #0084ff">Xin chào, <span th:text="${authentication.principal.username}"></span>!</h1>
+            <h3 style="color: lightgreen">Chào mừng <a style="color: red"
+                                                       th:href="@{/user/{username} (username=${authentication.principal.username})}"
+                                                       th:text="${authentication.principal.username}"></a> đến với trang
+                web!</h3>
         </div>
         <div th:if="${authentication.getPrincipal().toString().equals('anonymousUser')}">
-            <h1><a href="/login" class="btn btn-primary" style="padding:10px;background: #ff860d;font-size: 23px; width: auto; height: auto">Tham Gia Ngay</a></h1>
+            <h1><a href="/login" class="btn btn-primary"
+                   style="padding:10px;background: #ff860d;font-size: 23px; width: auto; height: auto">Tham Gia Ngay</a>
+            </h1>
 
         </div>
     </div>
 </header>
+<form action="/search" method="get">
+<div style="position: absolute; top:5px; left: 100px; width: 500px">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="form">
+<!--                <i class="fa fa-search"></i>-->
+                <input name="title" type="text" class="form-control form-input" placeholder="Search anything...">
+                <button type="submit" style="position: absolute;left: 160px;top: -20px;">Search</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</form>
 <!-----------------NICE-PLACE------------>
 <section class="nice-place">
     <div class="container">
@@ -54,7 +80,9 @@
                     <i class="fa-sharp fa-solid fa-star"></i>
                     <i class="fa-sharp fa-solid fa-star"></i>
                     <p th:text="${blog.view} + ' views'"></p>
-                    <a th:href="@{blog/{id} (id=${blog.id})}"><button class="btn">Đọc Thêm</button></a>
+                    <a th:href="@{blog/{id} (id=${blog.id})}">
+                        <button class="btn">Đọc Thêm</button>
+                    </a>
                 </div>
             </div>
 
@@ -73,7 +101,9 @@
                     <i class="fa-sharp fa-solid fa-star"></i>
                     <i class="fa-sharp fa-solid fa-star"></i>
                     <p th:text="${blog.view} + ' views'"></p>
-                    <a th:href="@{blog/{id} (id=${blog.id})}"><button class="btn">Đọc Thêm</button></a>
+                    <a th:href="@{blog/{id} (id=${blog.id})}">
+                        <button class="btn">Đọc Thêm</button>
+                    </a>
                 </div>
             </div>
 
@@ -123,45 +153,52 @@
         <h1 class="h1-style">Tour hè 2023</h1>
         <div class="tour-content-item row">
             <div class="tour-content-item-img">
-                <img src="image/2-1662873807.jpg"alt="">
+                <img src="image/2-1662873807.jpg" alt="">
             </div>
             <div class="tour-content-item-text">
                 <h2>Đà Lạt</h2>
                 <p>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm Viên,thuộc vùng Tây Nguyên,</p>
-                <button class="btn"> <a href="/dalat"> Khám phá</a></button>
+                <button class="btn"><a href="/dalat"> Khám phá</a></button>
             </div>
         </div>
         <div class="tour-content-item row">
             <div class="tour-content-item-img">
-                <img src="image/download.jpg"alt="">
+                <img src="image/download.jpg" alt="">
             </div>
             <div class="tour-content-item-text">
                 <h2>Hội An</h2>
-                <p>Hội An là một thành phố trực thuộc tỉnh Quảng Nam, Việt Nam. Phố cổ Hội An từng là một thương cảng quốc tế sầm uất, gồm những di sản kiến trúc đã có từ hàng trăm năm trước, được UNESCO công nhận là di sản văn hóa thế giới từ năm 1999.</p>
+                <p>Hội An là một thành phố trực thuộc tỉnh Quảng Nam, Việt Nam. Phố cổ Hội An từng là một thương cảng
+                    quốc tế sầm uất, gồm những di sản kiến trúc đã có từ hàng trăm năm trước, được UNESCO công nhận là
+                    di sản văn hóa thế giới từ năm 1999.</p>
                 <button class="btn"><a href="/hoian">Khám phá</a></button>
             </div>
         </div>
         <div class="tour-content-item row">
             <div class="tour-content-item-img">
-                <img src="image/download (1).jpg"alt="">
+                <img src="image/download (1).jpg" alt="">
             </div>
             <div class="tour-content-item-text">
                 <h2>Hồ Chí Minh</h2>
-                <p>Thành phố Hồ Chí Minh (thường được gọi là Sài Gòn) là thành phố lớn nhất của Việt Nam. Đây là nơi có nhiều cơ hội việc làm và thu hút đông đảo du khách từ khắp nơi trên thế giới. Thành phố có nhiều điểm tham quan du lịch nổi tiếng như Chợ Bến Thành, Dinh Độc Lập, Nhà hát Thành phố Hồ Chí Minh và Bảo tàng Mỹ thuật.</p>
+                <p>Thành phố Hồ Chí Minh (thường được gọi là Sài Gòn) là thành phố lớn nhất của Việt Nam. Đây là nơi có
+                    nhiều cơ hội việc làm và thu hút đông đảo du khách từ khắp nơi trên thế giới. Thành phố có nhiều
+                    điểm tham quan du lịch nổi tiếng như Chợ Bến Thành, Dinh Độc Lập, Nhà hát Thành phố Hồ Chí Minh và
+                    Bảo tàng Mỹ thuật.</p>
                 <button class="btn"><a href="/hochiminh">Khám phá</a></button>
             </div>
         </div>
         <div class="tour-content-item row">
             <div class="tour-content-item-img">
-                <img src="image/Tour-du-lịch-Dà-Nẵng-_-Du-lịch-Lion-Trip.png"alt="">
+                <img src="image/Tour-du-lịch-Dà-Nẵng-_-Du-lịch-Lion-Trip.png" alt="">
             </div>
             <div class="tour-content-item-text">
                 <h2>Đà Nẵng</h2>
-                <p>Đà Nẵng là thành phố thuộc miền Trung Việt Nam, nằm ở vị trí trung tâm của cả nước. Đây là một trong những thành phố phát triển nhanh nhất của Việt Nam với nhiều cơ hội kinh doanh, đầu tư và du lịch. Đà Nẵng có diện tích khoảng 1.285 km² và dân số khoảng 1,2 triệu người.</p>
+                <p>Đà Nẵng là thành phố thuộc miền Trung Việt Nam, nằm ở vị trí trung tâm của cả nước. Đây là một trong
+                    những thành phố phát triển nhanh nhất của Việt Nam với nhiều cơ hội kinh doanh, đầu tư và du lịch.
+                    Đà Nẵng có diện tích khoảng 1.285 km² và dân số khoảng 1,2 triệu người.</p>
                 <button class="btn"><a href="/danang">Khám phá</a></button>
             </div>
         </div>
-    </section>
+</section>
 <!-- ----------------Video 6: Review ----------------- -->
 <section class="review">
     <div class="container">
@@ -169,11 +206,12 @@
         <div class="review-content row">
             <div class="review-item">
                 <div class="review-item-text">
-                    <img src="image/quotes.png"alt="">
-                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm Viên,thuộc vùng Tây Nguyên<span>&rdquo;</span></p>
+                    <img src="image/quotes.png" alt="">
+                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm
+                        Viên,thuộc vùng Tây Nguyên<span>&rdquo;</span></p>
                 </div>
                 <div class="review-item-img row">
-                    <img src="image/Mailovesbeauty Hue Review 1.jpg"alt="">
+                    <img src="image/Mailovesbeauty Hue Review 1.jpg" alt="">
                     <div class="review-item-img-text">
                         <h2>Ngô Sỹ Nguyên</h2>
                         <p>Ngày 12/4/2023</p>
@@ -182,11 +220,12 @@
             </div>
             <div class="review-item">
                 <div class="review-item-text">
-                    <img src="image/quotes.png"alt="">
-                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm Viên,thuộc vùng Tây Nguyên,</p>
+                    <img src="image/quotes.png" alt="">
+                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm
+                        Viên,thuộc vùng Tây Nguyên,</p>
                 </div>
                 <div class="review-item-img row">
-                    <img src="image/du-lich-ninh-binh-ivivu-1.jpg"alt="">
+                    <img src="image/du-lich-ninh-binh-ivivu-1.jpg" alt="">
                     <div class="review-item-img-text">
                         <h2>Ngô Sỹ Nguyên</h2>
                         <p>Ngày 12/4/2023</p>
@@ -195,11 +234,12 @@
             </div>
             <div class="review-item">
                 <div class="review-item-text">
-                    <img src="image/quotes.png"alt="">
-                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm Viên,thuộc vùng Tây Nguyên,</p>
+                    <img src="image/quotes.png" alt="">
+                    <p><span>&ldquo;</span>Đà Lạt là thành phố tỉnh lỵ của tỉnh Lâm Đồng,nằm trên cao nguyên Lâm
+                        Viên,thuộc vùng Tây Nguyên,</p>
                 </div>
                 <div class="review-item-img row">
-                    <img src="image/review-kinh-nghiem-du-lich-con-dao-tu-tuc-04.jpg"alt="">
+                    <img src="image/review-kinh-nghiem-du-lich-con-dao-tu-tuc-04.jpg" alt="">
                     <div class="review-item-img-text">
                         <h2>Ngô Sỹ Nguyên</h2>
                         <p>Ngày 12/4/2023</p>
@@ -213,7 +253,7 @@
 <section class="signup">
     <h1 class="h1-style">Đăng ký ngay</h1>
     <div class="signup-content">
-        <input type="text" placeholder="Nhập email của bạn" >
+        <input type="text" placeholder="Nhập email của bạn">
         <button class="btn">Gửi</button>
 
     </div>
