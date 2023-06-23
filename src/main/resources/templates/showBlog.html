@@ -316,6 +316,7 @@
 <hr>
 <br>
 <form th:action="@{/comment/{id} (id=${blog.id})}" method="post">
+    <input name="id" value="0" hidden="hidden">
     <div class="row container">
 
         <div class="col-2">
